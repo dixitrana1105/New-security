@@ -172,13 +172,13 @@ Route::post('/login', [SuperAdminController::class, 'login'])->name('super-admin
 
 Route::view('/super-admin', 'auth.boxed-signin');
     Route::view('/school/new-signin', 'school-new-signin');
-    Route::view('/building/new-signin', 'building-new-signin');
+    Route::view('/building/new-signin', 'auth.building-signin'); //baki
 
 
     Route::view('/', 'building-tenant-new-signin');
     Route::view('/school/security/new-signin', 'school-security-new-signin');
     Route::view('/building/security/new-signin', 'building-security-new-signin');
-    
+
 Route::get('/new-entry', [Api::class, 'new_visitor_scan']);
 Route::get('/building-security/new-entry', [Api::class, 'new_visitor_scan']);
 

@@ -28,15 +28,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $CountOfnewTicket }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -49,12 +49,12 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
-                    
+
                     <!-- Users Visit -->
-                    <div class="panel bg-gradient-to-r from-blue-500 to-cyan-400" >
+                    {{-- <div class="panel bg-gradient-to-r from-blue-500 to-cyan-400" >
                         <div class="flex justify-between">
                             <div class="ltr:mr-1 rtl:ml-1 text-md font-semibold">New Tickets</div>
                             <div x-data="dropdown" @click.outside="open = false" class="dropdown">
@@ -78,7 +78,6 @@
                         </div>
                         <div class="flex items-center mt-5">
                             <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
-                            {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -93,7 +92,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Sessions -->
                     <div class="panel bg-gradient-to-r from-fuchsia-500 to-blue-400" >
                         <div class="flex justify-between">
@@ -112,16 +111,15 @@
                                 </a>
                                 <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
-    
+
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
                             <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0 </div>
-                            {{-- <div class="badge bg-white/30">- 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -136,7 +134,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Time On-Site -->
                     <div class="panel bg-gradient-to-r from-cyan-500 to-blue-400" >
                         <div class="flex justify-between">
@@ -157,13 +155,12 @@
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
                             <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
-                            {{-- <div class="badge bg-white/30">+ 1.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -178,7 +175,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Bounce Rate -->
                     <div class="panel bg-gradient-to-r from-blue-500 to-fuchsia-400" >
                         <div class="flex justify-between">
@@ -199,13 +196,12 @@
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
                             <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
-                            {{-- <div class="badge bg-white/30">- 0.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -219,15 +215,15 @@
                             </svg>
                             Last Week 0
                         </div>
-                    </div>
-                </div>            
+                    </div> --}}
+                </div>
             </div>
         </div>
     </div>
     <br>
     <div class="relative rounded-t-md bg-primary-light bg-[url('/assets/images/knowledge/pattern.png')] bg-contain bg-left-top bg-no-repeat px-5 py-10 dark:bg-black md:px-10">
         <script defer src="/assets/js/apexcharts.js"></script>
-        <div x-data="finance">            
+        <div x-data="finance">
             <h1>Security</h1>
             <div class="pt-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-6 text-white" >
@@ -271,7 +267,7 @@
                             Last Week 0
                         </div>
                     </div>
-                    
+
                     <!-- Users Visit -->
                     <div class="panel bg-gradient-to-r from-blue-500 to-cyan-400" >
                         <div class="flex justify-between">
@@ -312,7 +308,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Sessions -->
                     <div class="panel bg-gradient-to-r from-fuchsia-500 to-blue-400" >
                         <div class="flex justify-between">
@@ -331,10 +327,10 @@
                                 </a>
                                 <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
-    
+
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
@@ -355,7 +351,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Time On-Site -->
                     <div class="panel bg-gradient-to-r from-cyan-500 to-blue-400" >
                         <div class="flex justify-between">
@@ -376,7 +372,7 @@
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
@@ -397,7 +393,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Bounce Rate -->
                     <div class="panel bg-gradient-to-r from-blue-500 to-fuchsia-400" >
                         <div class="flex justify-between">
@@ -418,7 +414,7 @@
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
@@ -460,7 +456,7 @@
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
+
                                 </ul>
                             </div>
                         </div>
@@ -481,11 +477,11 @@
                             Last Week 0
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
         </div>
     </div>
-  
+
         <script>
             document.addEventListener("alpine:init", () => {
                 // finance
@@ -497,31 +493,31 @@
                         const binance = null;
                         const tether = null;
                         const solana = null;
-    
+
                         setTimeout(() => {
                             this.bitcoin = new ApexCharts(this.$refs.bitcoin, this.bitcoinOptions);
                             this.bitcoin.render();
-    
+
                             this.ethereum = new ApexCharts(this.$refs.ethereum, this
                                 .ethereumOptions);
                             this.ethereum.render();
-    
+
                             this.litecoin = new ApexCharts(this.$refs.litecoin, this
                                 .litecoinOptions);
                             this.litecoin.render();
-    
+
                             this.binance = new ApexCharts(this.$refs.binance, this.binanceOptions);
                             this.binance.render();
-    
+
                             this.tether = new ApexCharts(this.$refs.tether, this.tetherOptions);
                             this.tether.render();
-    
+
                             this.solana = new ApexCharts(this.$refs.solana, this.solanaOptions);
                             this.solana.render();
                         }, 300);
-    
+
                     },
-    
+
                     get bitcoinOptions() {
                         return {
                             series: [{
@@ -577,7 +573,7 @@
                             }],
                         }
                     },
-    
+
                     get ethereumOptions() {
                         return {
                             series: [{
@@ -633,7 +629,7 @@
                             }],
                         }
                     },
-    
+
                     get litecoinOptions() {
                         return {
                             series: [{
@@ -689,7 +685,7 @@
                             }],
                         }
                     },
-    
+
                     get binanceOptions() {
                         return {
                             series: [{
@@ -745,7 +741,7 @@
                             }],
                         }
                     },
-    
+
                     get tetherOptions() {
                         return {
                             series: [{
@@ -801,7 +797,7 @@
                             }],
                         }
                     },
-    
+
                     get solanaOptions() {
                         return {
                             series: [{
@@ -860,6 +856,5 @@
                 }));
             });
         </script>
-    
+
     </x-layout.default>
-    

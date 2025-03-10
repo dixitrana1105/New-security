@@ -28,15 +28,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Total Tickets'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -52,7 +52,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Sessions -->
                     <div class="panel bg-gradient-to-r from-blue-500 to-fuchsia-400">
                         <div class="flex justify-between">
@@ -69,17 +69,17 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
-    
+
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
-                                </ul>
+
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['New'] }}</div>
                             {{-- <div class="badge bg-white/30">- 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -95,7 +95,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Time On-Site -->
                     <div class="panel bg-gradient-to-r from-blue-500 to-blue-400">
                         <div class="flex justify-between">
@@ -112,16 +112,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
-                                </ul>
+
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Open'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 1.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -137,7 +137,7 @@
                             Last Week 0
                         </div>
                     </div>
-    
+
                     <!-- Bounce Rate -->
                     <div class="panel bg-gradient-to-r from-fuchsia-500 to-cyan-400">
                         <div class="flex justify-between">
@@ -154,16 +154,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-    
-                                </ul>
+
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Hold'] }}</div>
                             {{-- <div class="badge bg-white/30">- 0.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -195,15 +195,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Close'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -220,10 +220,10 @@
                         </div>
                     </div>
                 </div>
-    
+
             </div>
         </div>
-    </div>    
+    </div>
         <script>
             document.addEventListener("alpine:init", () => {
                 // finance
@@ -235,31 +235,31 @@
                         const binance = null;
                         const tether = null;
                         const solana = null;
-    
+
                         setTimeout(() => {
                             this.bitcoin = new ApexCharts(this.$refs.bitcoin, this.bitcoinOptions);
                             this.bitcoin.render();
-    
+
                             this.ethereum = new ApexCharts(this.$refs.ethereum, this
                                 .ethereumOptions);
                             this.ethereum.render();
-    
+
                             this.litecoin = new ApexCharts(this.$refs.litecoin, this
                                 .litecoinOptions);
                             this.litecoin.render();
-    
+
                             this.binance = new ApexCharts(this.$refs.binance, this.binanceOptions);
                             this.binance.render();
-    
+
                             this.tether = new ApexCharts(this.$refs.tether, this.tetherOptions);
                             this.tether.render();
-    
+
                             this.solana = new ApexCharts(this.$refs.solana, this.solanaOptions);
                             this.solana.render();
                         }, 300);
-    
+
                     },
-    
+
                     get bitcoinOptions() {
                         return {
                             series: [{
@@ -315,7 +315,7 @@
                             }],
                         }
                     },
-    
+
                     get ethereumOptions() {
                         return {
                             series: [{
@@ -371,7 +371,7 @@
                             }],
                         }
                     },
-    
+
                     get litecoinOptions() {
                         return {
                             series: [{
@@ -427,7 +427,7 @@
                             }],
                         }
                     },
-    
+
                     get binanceOptions() {
                         return {
                             series: [{
@@ -483,7 +483,7 @@
                             }],
                         }
                     },
-    
+
                     get tetherOptions() {
                         return {
                             series: [{
@@ -539,7 +539,7 @@
                             }],
                         }
                     },
-    
+
                     get solanaOptions() {
                         return {
                             series: [{
@@ -598,6 +598,5 @@
                 }));
             });
         </script>
-    
+
     </x-layout.default>
-    

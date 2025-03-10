@@ -12,7 +12,10 @@ class TicketSecuritySchool extends Controller
 {
     public function dashboard()
     {
-        return view('school-security.ticket.dashboard');
+        $CountOfnewTicket = SchoolSecurityTicket::where('added_by', Auth::guard('schoolsecurity')
+        ->user()->id)
+->count();
+        return view('school-security.ticket.dashboard', compact('CountOfnewTicket'));
     }
 
     public function closeticket_security()

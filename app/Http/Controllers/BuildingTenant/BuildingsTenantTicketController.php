@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\BuildingTenant;
 use App\Http\Controllers\Controller;
 use App\Models\BuildingTenantTicket;
-use App\Models\BuildingAdminTicketFollow;
+use App\Models\BuildingAdminTenant;
 use App\Models\BuildingAdminTicket;
 use App\Models\BuildingSecurityTicket;
+use App\Models\BuildingAdminTicketFollow;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,33 @@ class BuildingsTenantTicketController extends Controller
 {
     public function dashboard()
     {
-        // dd('ok');
-        return view('building-tenant.ticket.ticket-dashboard');
+        $Buildingnew = BuildingAdminTicket::with('building')->where('role', 'building_tenant')->where('status_of_button', null)->count();
+        $BuildingTenantnew = BuildingTenantTicket::with('building')->where('role', 'building_tenant')->where('status_of_button', null)->count();
+
+        $adminOpen  = BuildingAdminTicket::where('role', 'building_tenant')->where('status_of_button', 0)->count();
+        $adminHold  = BuildingAdminTicket::where('role', 'building_tenant')->where('status_of_button', 1)->count();
+        $adminClose = BuildingAdminTicket::where('role', 'building_tenant')->where('status_of_button', 2)->count();
+
+        $securityOpen  = BuildingSecurityTicket::where('role', 'building_tenant')->where('status_of_button', 0)->count();
+        $securityHold  = BuildingSecurityTicket::where('role', 'building_tenant')->where('status_of_button', 1)->count();
+        $securityClose = BuildingSecurityTicket::where('role', 'building_tenant')->where('status_of_button', 2)->count();
+
+        $myTicketCount = BuildingTenantTicket::where('added_by', Auth::guard('buildingtenant')->user()->id)->count();
+
+        $totalTickets = $adminOpen + $adminHold + $adminClose +
+            $securityOpen + $securityHold + $securityClose +
+            $myTicketCount + $Buildingnew + $BuildingTenantnew ;
+
+        $data = [
+            'Open'          => $adminOpen + $securityOpen,
+            'Hold'          => $adminHold + $securityHold,
+            'Close'         => $adminClose + $securityClose,
+            'New' => $BuildingTenantnew + $Buildingnew,
+            'My Tickets'    => $myTicketCount,
+            'Total Tickets' => $totalTickets,
+        ];
+
+        return view('building-tenant.ticket.ticket-dashboard', compact('data'));
     }
 
     public function new_ticket()

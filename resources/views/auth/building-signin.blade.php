@@ -62,12 +62,10 @@
                         </div>
                         <form id="loginForm" class="space-y-5 dark:text-white" method="POST" action="{{ route('building-admin.login') }}">
                             @csrf
-                            <label for="redirectUrl">Select Login Type</label>
-                            <div class="relative text-white-dark">
-                                <select id="redirectUrl" name="redirect_url" class="w-full p-2 border border-gray-300 rounded-md" onchange="updateFormAction()">
+                            <label for="redirectUrl" hidden>Select Login Type</label>
+                            <div class="relative text-white-dark" hidden>
+                                <select id="redirectUrl" name="redirect_url" class="w-full p-2 border border-gray-300 rounded-md" onchange="updateFormAction()" hidden>
                                     <option value="building">Building</option>
-                                    {{-- <option value="security">Building Security</option>
-                                    <option value="tenant">Building Tenant</option>                         --}}
                                 </select>
                             </div>
 
@@ -113,9 +111,10 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
+                             <button type="submit" class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
                                 Sign In
                             </button>
+                            {{--
                             <button type="button"
                             class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]"
                             onclick="window.location.href='/building/security/new-signin'">
@@ -126,7 +125,7 @@
                             class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]"
                             onclick="window.location.href='/building/tenant/new-signin'">
                         Building Tenant Sign In
-                    </button>
+                    </button> --}}
 
 
                         </form>

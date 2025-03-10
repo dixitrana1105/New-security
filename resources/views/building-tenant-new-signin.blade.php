@@ -3,7 +3,7 @@
         <div class="absolute inset-0">
             <img src="/assets/images/auth/bg-gradient.png" alt="image" class="h-full w-full object-cover" />
         </div>
-        <div class="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/map.png)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16">
+        <div class="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/map.png)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16 tenant">
             <img src="/assets/images/auth/coming-soon-object1.png" alt="image" class="absolute left-0 top-1/2 h-full max-h-[893px] -translate-y-1/2" />
             <img src="/assets/images/auth/coming-soon-object2.png" alt="image" class="absolute left-24 top-0 h-40 md:left-[30%]" />
             <img src="/assets/images/auth/coming-soon-object3.png" alt="image" class="absolute right-0 top-0 h-[300px]" />
@@ -20,7 +20,7 @@
                             :class="{'bg-primary/90 text-white': currentForm === 'building-tenant', 'bg-gray-100 hover:bg-gray-200 text-gray-700': currentForm !== 'building-tenant'}"
                             class="btn w-full border-0 uppercase transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-lg py-2 px-4 shadow-md"
                         >
-                            Building Tenant
+                            Building User
                         </button>
                         <button
                             @click="currentForm = 'school-security'"
@@ -46,7 +46,7 @@
                         <!-- Building Tenant Form -->
                         <div x-show="currentForm === 'building-tenant'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-4" x-transition:enter-end="opacity-100 transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-x-0" x-transition:leave-end="opacity-0 transform -translate-x-4">
                             <div class="mb-8">
-                                <h1 class="text-2xl font-extrabold uppercase !leading-snug text-primary md:text-3xl">Building Tenant</h1>
+                                <h1 class="text-2xl font-extrabold uppercase !leading-snug text-primary md:text-3xl">Building User</h1>
                                 <p class="text-sm font-bold leading-normal text-white-dark">Enter your email and password to login</p>
                             </div>
                             <form id="loginForm" class="space-y-4 dark:text-white" method="POST" action="{{ route('building-tenant.login') }}">

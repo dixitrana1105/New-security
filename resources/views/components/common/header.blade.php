@@ -3,10 +3,10 @@
         <div class="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-[#0e1726]">
             <div class="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
                 <a href="/" class="main-logo flex items-center shrink-0">
-                    <img class="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/logo.svg"
+                    <img class="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/security-logo.png"
                         alt="image" />
                     <span
-                        class="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">VRISTO</span>
+                        class="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">V6IT</span>
                 </a>
 
                 <a href="javascript:;"
@@ -386,11 +386,37 @@
                                         alt="image" />
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
+                                    @php
+    // Define all the guards you want to check
+                                                $guards = ['superadmin', 'buildingadmin', 'schoolsecurity', 'buildingSecutityadmin', 'buildingtenant'];
+
+                                                // Initialize a variable to store the email
+                                                $userEmail = null;
+
+                                                // Loop through each guard and check if the user is authenticated
+                                                foreach ($guards as $guard) {
+                                                    if (Auth::guard($guard)->check()) {
+                                                        // If the user is authenticated, get the email
+                                                        $userEmail = Auth::guard($guard)->user()->email;
+                                                        $userName = Auth::guard($guard)->user()->full_name;
+                                                        print_r($userName);
+                                                        break;
+                                                    }
+                                                }
+
+                                                // If an email was found, display it
+                                                if ($userEmail) {
+                                                    echo '<a class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white" href="javascript:;">' . $userEmail . '</a>';
+                                                } else {
+                                                    echo 'No authenticated user found.';
+                                                }
+                                            @endphp
+
                                     <h4 class="text-base">John Doe<span
                                             class="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
                                     </h4>
-                                    <a class="text-black/60  hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
-                                        href="javascript:;">johndoe@gmail.com</a>
+                                    {{-- <a class="text-black/60  hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
+                                        href="javascript:;">johndoe@gmail.com</a> --}}
                                 </div>
                             </div>
                         </li>
@@ -463,8 +489,8 @@
                                 </a>
                             </form>
                         </li>
-                        
-                        
+
+
                     </ul>
                 </div>
             </div>

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Building;
-
-use App\Http\Controllers\Controller;
+use App\Models\BuildingAdminTenant;
 use App\Models\BuildingAdminTicket;
 use App\Models\BuildingSecurityTicket;
 use App\Models\BuildingTenantTicket;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +13,41 @@ class BuildingTicketController extends Controller
 {
     public function dashboard()
     {
-        return view('building-admin.ticket.ticket-dashboard');
+
+        $tenant_new   = BuildingTenantTicket::where('role', 'building_admin')->whereNull('status_of_button')->count();
+        $tenant_open  = BuildingTenantTicket::where('role', 'building_admin')->where('status_of_button', 0)->count();
+        $tenant_hold  = BuildingTenantTicket::where('role', 'building_admin')->where('status_of_button', 1)->count();
+        $tenant_close = BuildingTenantTicket::where('role', 'building_admin')->where('status_of_button', 2)->count();
+
+// Count tickets from BuildingSecurityTicket
+        $security_new   = BuildingSecurityTicket::where('role', 'building_admin')->whereNull('status_of_button')->count();
+        $security_open  = BuildingSecurityTicket::where('role', 'building_admin')->where('status_of_button', 0)->count();
+        $security_hold  = BuildingSecurityTicket::where('role', 'building_admin')->where('status_of_button', 1)->count();
+        $security_close = BuildingSecurityTicket::where('role', 'building_admin')->where('status_of_button', 2)->count();
+
+// Sum up counts for all statuses
+        $total_new   = $tenant_new + $security_new;
+        $total_open  = $tenant_open + $security_open;
+        $total_hold  = $tenant_hold + $security_hold;
+        $total_close = $tenant_close + $security_close;
+
+// Count BuildingAdminTicket
+        $my_ticket_count = BuildingAdminTicket::where('added_by', Auth::guard('buildingadmin')->user()->id)->count();
+
+// Now calculate total tickets after defining all totals
+        $total_tickets = $total_new + $total_open + $total_hold + $total_close + $my_ticket_count;
+
+// Display results
+        $data = [
+            'New'           => $total_new,
+            'Open'          => $total_open,
+            'Hold'          => $total_hold,
+            'Close'         => $total_close,
+            'My Tickets'    => $my_ticket_count,
+            'total_tickets' => $total_tickets,
+        ];
+
+        return view('building-admin.ticket.ticket-dashboard', compact('data'));
     }
 
     public function new_ticket()

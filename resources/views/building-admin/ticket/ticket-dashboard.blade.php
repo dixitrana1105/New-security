@@ -28,15 +28,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['My Tickets'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -49,7 +49,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
 
@@ -68,15 +68,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['total_tickets'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -89,7 +89,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
 
@@ -109,17 +109,17 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
 
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['New'] }}</div>
                             {{-- <div class="badge bg-white/30">- 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -132,7 +132,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
 
@@ -152,16 +152,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Open'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 1.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -174,7 +174,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
 
@@ -194,16 +194,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Hold'] }}</div>
                             {{-- <div class="badge bg-white/30">- 0.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -216,7 +216,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
 
@@ -235,15 +235,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Close'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -256,7 +256,7 @@
                                     d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
                                     stroke="currentColor" stroke-width="1.5"></path>
                             </svg>
-                            Last Week 0
+                            {{-- Last Week 0 --}}
                         </div>
                     </div>
                 </div>

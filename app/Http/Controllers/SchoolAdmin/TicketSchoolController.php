@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\SchoolAdmin;
 use App\Http\Controllers\Controller;
 use App\Models\SchoolAdminTicket;
-use App\Models\SuperAdminTicket;
+use App\Models\SchoolAdminSecurity;
 use App\Models\SchoolSecurityTicket;
+use App\Models\SchoolSecurityVisitor;
+use App\Models\SuperAdminTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -88,7 +90,31 @@ $ticket_data = $get_all_ticket_from_school_secutity->merge($ticket_data_1);
 
     public function dashboard()
     {
-        return view('school-admin.ticket.dashboard');
+        $schoolSecurityOpen  = SchoolSecurityTicket::where('role', 'school_admin')->where('status_of_button', 0)->count();
+        $schoolSecurityHold  = SchoolSecurityTicket::where('role', 'school_admin')->where('status_of_button', 1)->count();
+        $schoolSecurityClose = SchoolSecurityTicket::where('role', 'school_admin')->where('status_of_button', 2)->count();
+        $schoolSecurityNull  = SchoolSecurityTicket::where('role', 'school_admin')->whereNull('status_of_button')->count();
+
+        $superAdminOpen  = SuperAdminTicket::where('role', 'school_admin')->where('status_of_button', 0)->count();
+        $superAdminHold  = SuperAdminTicket::where('role', 'school_admin')->where('status_of_button', 1)->count();
+        $superAdminClose = SuperAdminTicket::where('role', 'school_admin')->where('status_of_button', 2)->count();
+        $superAdminNull  = SuperAdminTicket::where('role', 'school_admin')->whereNull('status_of_button')->count();
+
+        $schoolAdminTicketCount = SchoolAdminTicket::where('added_by', Auth::guard('buildingadmin')->user()->id)->count();
+
+        $totalTickets = $schoolSecurityOpen + $schoolSecurityHold + $schoolSecurityClose + $schoolSecurityNull +
+            $superAdminOpen + $superAdminHold + $superAdminClose + $superAdminNull +
+            $schoolAdminTicketCount;
+
+        $data = [
+            'Open'                 => $schoolSecurityOpen + $superAdminOpen,
+            'Hold'                 => $schoolSecurityHold + $superAdminHold,
+            'Close'                => $schoolSecurityClose + $superAdminClose,
+            'New'                 => $schoolSecurityNull + $superAdminNull,
+            'School Admin Tickets' => $schoolAdminTicketCount,
+            'Total Tickets'        => $totalTickets,
+        ];
+        return view('school-admin.ticket.dashboard', compact('data'));
     }
 
 

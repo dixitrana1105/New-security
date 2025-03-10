@@ -5,8 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Models\BuildingAdminTicket;
 use App\Models\BuildingAdminTicketFollow;
 use App\Models\BuildingTenantTicket;
-use App\Models\BuildingSecurityTicket;
+use App\Models\BuildingAdminTenant;
 use App\Models\SchoolAdminTicket;
+use App\Models\BuildingSecurityTicket;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -16,7 +17,38 @@ class BuildingsSecurityTicketController extends Controller
     public function dashboard()
     {
         // dd('ok');
-        return view('building-security.ticket.ticket-dashboard');
+        $new_tickets = BuildingAdminTicket::where('role', 'building_security')->whereNull('status_of_button')->count() +
+        SchoolAdminTicket::where('role', 'security')->whereNull('status_of_button')->count() +
+        BuildingTenantTicket::where('role', 'security')->whereNull('status_of_button')->count();
+
+// Count tickets with status = 0 (Open)
+        $open_tickets = BuildingAdminTicket::where('role', 'building_security')->where('status_of_button', 0)->count() +
+        SchoolAdminTicket::where('role', 'security')->where('status_of_button', 0)->count() +
+        BuildingTenantTicket::where('role', 'security')->where('status_of_button', 0)->count();
+
+// Count tickets with status = 1 (Hold)
+        $hold_tickets = BuildingAdminTicket::where('role', 'building_security')->where('status_of_button', 1)->count() +
+        SchoolAdminTicket::where('role', 'security')->where('status_of_button', 1)->count() +
+        BuildingTenantTicket::where('role', 'security')->where('status_of_button', 1)->count();
+
+// Count tickets with status = 2 (Close)
+        $close_tickets = BuildingAdminTicket::where('role', 'building_security')->where('status_of_button', 2)->count() +
+        SchoolAdminTicket::where('role', 'security')->where('status_of_button', 2)->count() +
+        BuildingTenantTicket::where('role', 'security')->where('status_of_button', 2)->count();
+
+// Count all security tickets
+        $my_tickets = BuildingSecurityTicket::count();
+
+// Display results
+        $data = [
+            'new_tickets'   => $new_tickets,
+            'open_tickets'  => $open_tickets,
+            'hold_tickets'  => $hold_tickets,
+            'close_tickets' => $close_tickets,
+            'my_tickets'    => $my_tickets,
+            'total_tickets' => $new_tickets + $open_tickets + $hold_tickets + $close_tickets + $my_tickets,
+        ];
+        return view('building-security.ticket.ticket-dashboard', compact('data'));
     }
 
     public function new_ticket()

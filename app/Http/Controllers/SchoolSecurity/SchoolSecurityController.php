@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\SchoolSecurityVisitor;
+use App\Models\SchoolSecurityTicket;
 use Carbon\Carbon;
 use App\Models\SchoolAdminSecurity;
 
@@ -16,25 +17,25 @@ class SchoolSecurityController extends Controller
         $id = Auth::guard('schoolsecurity')->user()->id;
         $currentTime = Carbon::now()->format('H:i:s');
         $currentDate = Carbon::now();
-        $currentMonth = Carbon::now()->month;  
-        $startOfWeek = Carbon::now()->startOfWeek(); 
-        $endOfWeek = Carbon::now()->endOfWeek();    
-              
+        $currentMonth = Carbon::now()->month;
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+
         $currentvisitorCount = SchoolSecurityVisitor::where('added_by', $id)
             ->whereDate('date', Carbon::today())
             ->where(function ($query) use ($currentTime) {
                 $query->whereNull('out_time')
                     ->orWhere('out_time', '>', $currentTime);
             })
-            ->count(); 
+            ->count();
 
         $todayvisitorCount = SchoolSecurityVisitor::where('added_by', $id)
             ->whereDate('date', $currentDate)
-            ->count(); 
+            ->count();
 
         $relatedsecurity = SchoolAdminSecurity::where('id', $id)->pluck('added_by')->first();
         $totalsecurityCounter = SchoolAdminSecurity::where('added_by', $relatedsecurity)
-            ->count(); 
+            ->count();
 
         $monthlyvisitor = SchoolSecurityVisitor::where('added_by', $id)
             ->whereMonth('date', $currentMonth)
@@ -43,11 +44,24 @@ class SchoolSecurityController extends Controller
         $weeklyvisitor = SchoolSecurityVisitor::where('added_by', $id)
             ->whereBetween('date', [$startOfWeek, $endOfWeek])
             ->count();
-    
-    
-    
+
+            $CountOfnewTicket = SchoolSecurityTicket::where('added_by', Auth::guard('schoolsecurity')
+            ->user()->id)
+->count();
+// dd($CountOfnewTicket);
+
+
+
+
+
+
+
+
+
+
+
         return view('school-security.dashboard', compact('currentvisitorCount','todayvisitorCount','totalsecurityCounter',
-        'monthlyvisitor','weeklyvisitor'));
+        'monthlyvisitor','weeklyvisitor', 'CountOfnewTicket'));
     }
 
     public function login(Request $request)

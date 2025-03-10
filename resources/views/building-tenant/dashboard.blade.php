@@ -31,11 +31,11 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
@@ -72,13 +72,13 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
 
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
@@ -115,12 +115,12 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
@@ -158,12 +158,12 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
@@ -200,11 +200,11 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
@@ -248,15 +248,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> {{ $data['My Tickets'] }} </div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         {{-- <div class="flex items-center font-semibold mt-5">
@@ -290,17 +290,17 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
 
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['New'] }}</div>
                             {{-- <div class="badge bg-white/30">- 2.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -334,16 +334,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Open'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 1.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -377,16 +377,16 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">0</div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Hold'] }}</div>
                             {{-- <div class="badge bg-white/30">- 0.35% </div> --}}
                         </div>
                         <div class="flex items-center font-semibold mt-5">
@@ -419,15 +419,15 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
-                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3"> 0 </div>
+                            <div class="text-3xl font-bold ltr:mr-3 rtl:ml-3">{{ $data['Close'] }}</div>
                             {{-- <div class="badge bg-white/30">+ 2.35% </div> --}}
                         </div>
                         {{-- <div class="flex items-center font-semibold mt-5">
@@ -465,12 +465,12 @@
                                             stroke-width="1.5" />
                                     </svg>
                                 </a>
-                                <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
+                                {{-- <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                                     class="ltr:right-0 rtl:left-0 text-black dark:text-white-dark">
                                     <li><a href="javascript:;" @click="toggle">View Report</a></li>
                                     <li><a href="javascript:;" @click="toggle">Edit Report</a></li>
 
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="flex items-center mt-5">
