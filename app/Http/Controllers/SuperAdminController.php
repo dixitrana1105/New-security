@@ -60,13 +60,15 @@ class SuperAdminController extends Controller
 
 
     public function logout()
-{
-    Auth::logout();
+    {
+        $redirectTo = session('url.intended', '/');
 
-    session()->flush();
+        Auth::logout();
 
-    session()->regenerate();
+        session()->flush();
+        session()->regenerate();
 
-    return redirect('/');
-}
+        return redirect($redirectTo);
+    }
+
 }

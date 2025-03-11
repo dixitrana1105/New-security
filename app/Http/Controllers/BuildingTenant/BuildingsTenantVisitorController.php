@@ -28,30 +28,24 @@ class BuildingsTenantVisitorController extends Controller
 
         $bulding_id = Auth::guard('buildingtenant')->user()->building_id;
 
-        // dd(Auth::guard('buildingtenant')->user());
 
         $flat_office_no = Auth::guard('buildingtenant')->user()->flat_office_no;
 
-        // dd($flat_office_no);
 
         $login_id = Auth::guard('buildingtenant')->user()->id;
 
         $match_subenant_id = BuildingAdminTenant::where('id', $login_id)->first('sub_tenant_id');
 
-        // dd($match_subenant_id->sub_tenant_id);
 
         if ($match_subenant_id->sub_tenant_id !== null) {
-            // $this->is_not_null_deshboard();
             return redirect()->route('building-sub-tenant.visitor-index');
         }
-        // dd($login_id);
 
         $security_data = Visitor_Master::where('building_id', $bulding_id)
             ->where('tenant_flat_office_no', $flat_office_no)
             ->whereNull('out_time_remark')
             ->get();
 
-        // dd($security_data);
 
         return view('building-tenant.visitor.index', compact('security_data'));
     }

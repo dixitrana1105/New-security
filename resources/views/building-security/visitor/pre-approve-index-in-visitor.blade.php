@@ -47,7 +47,6 @@
                 <tr>
                     <th class="font-bold py-2 px-6">S.No</th>
                     <th class="font-bold py-2 px-8">Photo</th>
-
                     <th class="font-bold py-2 px-8">Visitor ID</th>
                     <th class="font-bold py-2 px-8">Date</th>
                     <th class="font-bold py-2 px-8">Full Name</th>
@@ -68,7 +67,6 @@
                         <td class="py-2 px-8">{{ $security->full_name }}</td>
                         <td class="py-2 px-8">{{ $security->in_time }}</td>
                         <td class="py-2 px-8">{{ $security->visiter_purpose }}</td>
-
                     </tr>
                 @endforeach
                 </tbody>

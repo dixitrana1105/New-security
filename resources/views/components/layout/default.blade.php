@@ -18,7 +18,7 @@
     <script defer src="/assets/js/popper.min.js"></script>
     <script defer src="/assets/js/tippy-bundle.umd.min.js"></script>
     <script defer src="/assets/js/sweetalert.min.js"></script>
-    <!--@vite(['resources/css/app.css'])-->
+    {{-- <!--@vite(['resources/css/app.css'])--> --}}
 
 
     {{-- @if (strpos(request()->getHost(), '127.0.0.1') !== false || strpos(request()->getHost(), 'localhost') !== false)
@@ -151,7 +151,7 @@
                 'building-security/profile',
                 'building-security/profile-form',
                 'building-security/password-reset',
-                                'newMessages*',  
+                                'newMessages*',
 
                 'building-security/new-ticket',
                 'building-security/ticket-dashboard',

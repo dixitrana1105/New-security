@@ -1,4 +1,8 @@
 <header class="z-40" :class="{ 'dark': $store.app.semidark && $store.app.menu === 'horizontal' }">
+    @php
+    $userDetails = getAuthenticatedUserDetails();
+    // dd($userDetails);
+@endphp
     <div class="shadow-sm">
         <div class="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-[#0e1726]">
             <div class="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
@@ -21,7 +25,7 @@
                     </svg>
                 </a>
             </div>
-            <div class="ltr:mr-2 rtl:ml-2 hidden sm:block">
+            {{-- <div class="ltr:mr-2 rtl:ml-2 hidden sm:block">
                 <ul class="flex items-center space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
                     <li>
                         <a href="/apps/calendar"
@@ -70,7 +74,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
             <div x-data="header"
                 class="sm:flex-1 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
                 <div class="sm:ltr:mr-auto sm:rtl:ml-auto" x-data="{ search: false }" @click.outside="search = false">
@@ -88,7 +92,7 @@
                                     <circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor"
                                         stroke-width="1.5" opacity="0.5" />
                                     <path d="M18.5 18.5L22 22" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" />
+                                        stroke-linecap="round"/>
                                 </svg>
                             </button>
                             <button type="button"
@@ -189,7 +193,7 @@
                     </ul>
                 </div>
 
-                <div class="dropdown" x-data="dropdown" @click.outside="open = false">
+                {{-- <div class="dropdown" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;"
                         class="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
                         @click="toggle">
@@ -274,8 +278,8 @@
                             </li>
                         </template>
                     </ul>
-                </div>
-                <div class="dropdown" x-data="dropdown" @click.outside="open = false">
+                </div> --}}
+                {{-- <div class="dropdown" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;"
                         class="relative block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
                         @click="toggle">
@@ -370,11 +374,11 @@
                             </li>
                         </template>
                     </ul>
-                </div>
+                </div> --}}
                 <div class="dropdown flex-shrink-0" x-data="dropdown" @click.outside="open = false">
                     <a href="javascript:;" class="relative group" @click="toggle()">
                         <span><img class="w-9 h-9 rounded-full object-cover saturate-50 group-hover:saturate-100"
-                                src="/assets/images/user-profile.jpeg" alt="image" /></span>
+                                src="{{ asset($userDetails['logo']) }}" alt="image" /></span>
                     </a>
                     <ul x-cloak x-show="open" x-transition x-transition.duration.300ms
                         class="ltr:right-0 rtl:left-0 text-dark dark:text-white-dark top-11 !py-0 w-[230px] font-semibold dark:text-white-light/90">
@@ -382,45 +386,21 @@
                             <div class="flex items-center px-4 py-4">
                                 <div class="flex-none">
                                     <img class="rounded-md w-10 h-10 object-cover"
-                                        src="/assets/images/user-profile.jpeg"
-                                        alt="image" />
+                                    src="{{ asset($userDetails['logo']) }}" alt="image"/>
                                 </div>
                                 <div class="ltr:pl-4 rtl:pr-4 truncate">
-                                    @php
-    // Define all the guards you want to check
-                                                $guards = ['superadmin', 'buildingadmin', 'schoolsecurity', 'buildingSecutityadmin', 'buildingtenant'];
-
-                                                // Initialize a variable to store the email
-                                                $userEmail = null;
-
-                                                // Loop through each guard and check if the user is authenticated
-                                                foreach ($guards as $guard) {
-                                                    if (Auth::guard($guard)->check()) {
-                                                        // If the user is authenticated, get the email
-                                                        $userEmail = Auth::guard($guard)->user()->email;
-                                                        $userName = Auth::guard($guard)->user()->full_name;
-                                                        print_r($userName);
-                                                        break;
-                                                    }
-                                                }
-
-                                                // If an email was found, display it
-                                                if ($userEmail) {
-                                                    echo '<a class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white" href="javascript:;">' . $userEmail . '</a>';
-                                                } else {
-                                                    echo 'No authenticated user found.';
-                                                }
-                                            @endphp
-
-                                    <h4 class="text-base">John Doe<span
-                                            class="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">Pro</span>
+                                    <h4 class="text-base">{{ $userDetails['name'] ?? '' }}<span
+                                            class="text-xs  rounded text-success px-1 ltr:ml-2 rtl:ml-2"></span>
                                     </h4>
-                                    {{-- <a class="text-black/60  hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
-                                        href="javascript:;">johndoe@gmail.com</a> --}}
+                                    <a class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
+                                    href="javascript:;"
+                                    title="{{ $userDetails['email'] ?? 'No email provided' }}">
+                                    {{ $userDetails['email'] ?? '' }}
+                                 </a>
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="/users/profile" class="dark:hover:text-white" @click="toggle">
                                 <svg class="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -431,8 +411,8 @@
                                         stroke="currentColor" stroke-width="1.5" />
                                 </svg>
                                 Profile</a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="/apps/mailbox" class="dark:hover:text-white" @click="toggle">
                                 <svg class="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -444,8 +424,8 @@
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
                                 </svg>
                                 Inbox</a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="/auth/boxed-lockscreen" class="dark:hover:text-white" @click="toggle">
                                 <svg class="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -468,7 +448,7 @@
                                     </g>
                                 </svg>
                                 Lock Screen</a>
-                        </li>
+                        </li> --}}
                         <li class="border-t border-white-light dark:border-white-light/10">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
